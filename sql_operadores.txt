@@ -1,0 +1,9 @@
+igual
+diferente
+maior ou igual
+menor ou igual
+between
+like
+not like
+is null
+is not null

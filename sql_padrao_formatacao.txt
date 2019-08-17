@@ -1,0 +1,4 @@
+SELECT first_name,
+       rental_date
+  FROM customer
+  LEFT JOIN rental ON customer.customer_id = rental.customer_id
