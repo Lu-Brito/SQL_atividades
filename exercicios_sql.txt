@@ -1,11 +1,27 @@
 Retornar todas as datas dos aluguéis e os valores pagos das locações que foram realizadas entre 16h e 23h no mês de junho de 2005
 
+uma query considerada ok
+
+SELECT CONCAT(first_name, ' ', last_name) AS name,
+       rental_date, amount
+  FROM customer 
+ INNER JOIN rental ON customer.customer_id = rental.customer_id 
+  LEFT JOIN payment ON rental.rental_id = payment.rental_id
+WHERE YEAR(rental_date) = 2005 
+   AND MONTH(rental_date) = 06 
+   AND TIME(rental_date) BETWEEN '16:00:00' AND '23:00:00'
+ ORDER BY rental_date ASC
+
+uma query que funciona, mas não é tão boa:
+
 SELECT CONCAT(first_name, ' ', last_name) AS name,
        rental_date, amount
   FROM customer 
   LEFT JOIN rental ON customer.customer_id = rental.customer_id 
   LEFT JOIN payment ON rental.rental_id = payment.rental_id
 WHERE YEAR(rental_date) = 2005 
-   AND MONTH(rental_date) = 06
+   AND MONTH(rental_date) = 06 and rental_date is not NULL
    AND TIME(rental_date) BETWEEN '16:00:00' AND '23:00:00'
  ORDER BY rental_date ASC
+
+
