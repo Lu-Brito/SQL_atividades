@@ -1,0 +1,29 @@
+
+
+Questão 7
+
+SELECT parametro.url, 
+      (CASE WHEN menu.nome is null THEN 'sem menu' 
+            ELSE menu.nome 
+        END), 
+      (CASE WHEN permissao.nome is null THEN 'sem permissão' 
+            ELSE permissao.nome 
+        END),
+      (CASE WHEN permissao.visivel = 1 THEN 'visível para todos'
+            WHEN permissao.visivel = 0 THEN 'visível apenas para desenv'
+            ELSE 'sem permissão' 
+        END), 
+      (CASE WHEN sitemap.ajuda IS NOT NULL THEN 'sim' ELSE 'não' 
+        END)
+  FROM parametro
+  LEFT JOIN menu ON parametro.id = menu.parametro_id
+  LEFT JOIN permissao ON parametro.permissao_id = permissao.id
+  LEFT JOIN sitemap ON parametro.id = sitemap.parametro_id;
+
+Questão 8
+
+SELECT COUNT(inscricao_aluno_id), 
+            sigla
+  FROM candidato_aluno
+   JOIN polo on polo.id = candidato_aluno.polo_id
+ORDER BY 1 DESC
