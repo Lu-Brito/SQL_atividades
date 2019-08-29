@@ -1,0 +1,22 @@
+ano-semestre
+
+ano*2+(semestre-1) - 4001
+
+2018-2 -> 36
+2019-1 -> 37
+2020-1 -> 39
+
+
+ano_entrada_grad*2+(periodo_entrada_grad-1)-4001
+
+select ano
+
+			 cast(substr(min(semestre), 1, 4) ano_entrada_grad AS UNSIGNED)*2+(,
+
+
+ano_entrada_grad * 2 + (periodo_entrada_grad -1)
+
+
+ano_letivo_pvs*2 + (1-1) - 4001
+
+ano_letivo_pvs*2 - 4001
